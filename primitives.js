@@ -1,74 +1,112 @@
-// const string =
-//   "The red fox is cute. The water dragon and the fox like to play.";
+const string1 =
+  "The red fox is cute. The water dragon and the fox like to play.";
 
-// const letters = string.split("");
+const letters = string1.split("");
+console.log("letters:", letters);
 
-// const words = string.split(" ");
+const words = string1.split(" ");
+console.log("words:", words);
 
-// function reverseWords(sentence) {
-//   return sentence
-//     .split(" ")
-//     .map((word) => {
-//       return word.split("").reverse().join();
-//     })
-//     .join();
-// }
+// Reverse Words
 
-// const string = "Hello I am a FOX";
-// // not finished
-// function titleCase(sentence) {
-//   return sentence.split(" ").map((word) => {
-//     const firstLetter = word[0].toUpperCase();
-//     return firstLetter + word.split("").slice(1);
-//   });
-// }
+function reverseWords(sentence) {
+  return sentence
+    .split(" ")
+    .map((word) => {
+      return word.split("").reverse().join("");
+    })
+    .join(" ");
+}
 
-// console.log(titleCase(string));
+console.log("reverseWords:", string1, "=>", reverseWords(string1));
 
-// oddish or evvenish
+// Title Case
 
-// function isEven(number) {
-//   if (number % 2 === 0) {
-//     return "Evenish";
-//   } else {
-//     return "oddish";
-//   }
-// }
+const string2 = "Hello I am a FOX";
 
-// function oddishOrEvenish(number) {
-//   const string = number
-//     .toString()
-//     .split("")
-//     .map((string) => {
-//       return Number(string);
-//     })
-//     .reduce((previous, current) => previous + current, 0);
-//   return isEven(string);
-// }
+function titleCase(sentence) {
+  return sentence
+    .split(" ")
+    .map((word) => {
+      const firstLetter = word[0].toUpperCase();
+      console.log("firstLetter", firstLetter);
+      const newWord = [];
+      word
+        .split("")
+        .slice(1)
+        .map((letter) => newWord.push(letter.toLowerCase()));
+      // not finished
+      // magic function newWord.unshift(firstLetter) ((unshift() is not working for some reason. makes newWord === newWord.length))
+      return newWord;
+    })
+    .join(" ");
+}
 
-// const fruit = ["bananas", "kiwis", "mangoes"];
+console.log("titleCase:", string2, "=>", titleCase(string2));
 
-// function at(array, index) {
-//   if (index < 0) {
-//     return array[+array.length + +index];
-//   }
-//   return array[index];
-// }
+// Oddish or Evenish
 
-// console.log(at(fruit, -1));
+function isEven(number) {
+  if (number % 2 === 0) {
+    return "Evenish";
+  } else {
+    return "oddish";
+  }
+}
 
-// length = 3;
-// index = 2;
+function oddishOrEvenish(number) {
+  const string = number
+    .toString()
+    .split("")
+    .map((string) => {
+      return Number(string);
+    })
+    .reduce((previous, current) => previous + current, 0);
+  return isEven(string);
+}
 
-// function fizzBuzz(number) {
-//   const numbersArr = [];
-//   for (i = 1; number >= i; i++) {
-//     numbersArr.push(i);
-//   }
-//   console.log(numbersArr);
-//   return numbersArr;
-// }
-// fizzBuzz(5);
+console.log(
+  "oddishOrEvenish:",
+  1234,
+  "=>",
+  oddishOrEvenish(1234),
+  1233,
+  "=>",
+  oddishOrEvenish(1233)
+);
+
+// Array.prototype.at()
+
+const fruit = ["bananas", "kiwis", "mangoes"];
+
+function at(array, index) {
+  if (index < 0) {
+    return array[+array.length + +index];
+  }
+  return array[index];
+}
+
+console.log("at:", fruit, -1, "=>", at(fruit, -1));
+
+// fizzBuzz
+
+function fizzBuzz(number) {
+  const numbersArr = [];
+  for (i = 1; number >= i; i++) {
+    // not finished
+    // if statement here to check if number is divisible by 3 or 5 or both
+    // if so return fizz or buzz or fizzbuzz
+    // else:
+    numbersArr.push(i);
+  }
+  return numbersArr;
+}
+
+console.log("fizzBuzz:", 14, "=>", fizzBuzz(14));
+
+// Anagrams
+
+// Unique Strings
 
 function uniqueString(strings) {
   return strings
@@ -84,4 +122,10 @@ function uniqueString(strings) {
 
 const stringsTest = ["Aa", "aaa", "aaaaa", "BbBb", "Aaaa", "AaAaAa", "a"];
 
-console.log(uniqueString(stringsTest));
+console.log("uniqueString:", stringsTest, "=>", uniqueString(stringsTest));
+
+// Unique Character
+
+// Equal Sides
+
+// Happy Numbers
